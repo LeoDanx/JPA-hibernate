@@ -1,12 +1,18 @@
 package com.angelehlJPA.JPAandHibernate.course;
 
+import jakarta.persistence.Entity;
+
+
 public class Course {
 	
 	private long id;
 	private String name;
 	private String author;
 	
-	
+	public Course() {
+		
+		
+	}
 	
 	
 	
