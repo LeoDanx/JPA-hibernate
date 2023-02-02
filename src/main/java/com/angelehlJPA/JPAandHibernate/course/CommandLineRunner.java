@@ -1,15 +1,19 @@
-package com.angelehlJPA.JPAandHibernate.course.jdbc;
+package com.angelehlJPA.JPAandHibernate.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.angelehlJPA.JPAandHibernate.course.Course;
+import com.angelehlJPA.JPAandHibernate.course.jdbc.CourseJdbcRepository;
+import com.angelehlJPA.JPAandHibernate.course.jpa.CourseJpaRepository;
 
 @Component
 public class CommandLineRunner implements org.springframework.boot.CommandLineRunner{
 
+	//@Autowired
+	//private CourseJdbcRepository repository;
+	
 	@Autowired
-	private CourseJdbcRepository repository;
+	private CourseJpaRepository repository;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -19,7 +23,7 @@ public class CommandLineRunner implements org.springframework.boot.CommandLineRu
 		repository.insert(new Course(2,"Azure","angelehl"));
 		repository.insert(new Course(3,"DevOps","angelehl"));
 		
-		repository.deleteBy(1);
+		repository.deleteById(1);
 		
 		System.out.println(repository.findById(2));
 		System.out.println(repository.findById(3));
